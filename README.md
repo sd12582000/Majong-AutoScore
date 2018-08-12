@@ -1,3 +1,8 @@
+# [原作者網站](https://www.kylen314.com/archives/7197)
+ 
+其實我只是因為作者提供的js網址掛了所以自己先fork一份想來試用看看而已
+以下為原內容
+
 Majong-AutoScore
 ================
 

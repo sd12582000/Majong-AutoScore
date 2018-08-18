@@ -16,7 +16,7 @@ function Player(m_playerName, m_Point) {　　　　
     this.PointHistory = new Array();
 }
 
-var game = new Game(1, '东', 0);
+var game = new Game(1, '東', 0);
 var InitScore = 25000;
 var player = [new Player('Aさん', InitScore), new Player('Bさん', InitScore), new Player('Cさん', InitScore), new Player('Dさん', InitScore)];
 var game_state = new Array();
@@ -49,7 +49,7 @@ function next_Game(Is_oya_win,bencheng_keep_flag) {
         game.jushu += 1;
         if (game.jushu > 4) {
             game.jushu = 1;
-            var cf = ['东', '南', '西', '北'];
+            var cf = ['東', '南', '西', '北'];
             for (var i = 0; i < 4; i++) {
                 if (cf[i] == game.changfeng) {
                     game.changfeng = cf[(i + 1) % 4];
@@ -62,7 +62,7 @@ function next_Game(Is_oya_win,bencheng_keep_flag) {
 
 function chang_line_mode() {
     Draw_Line_Curl = !Draw_Line_Curl;
-    $('#change_line_mode span').text(Draw_Line_Curl ? "绘制直线" : "绘制曲线");
+    $('#change_line_mode span').text(Draw_Line_Curl ? "繪製直線" : "繪製曲線");
     DrawLine();
 }
 
@@ -180,7 +180,7 @@ function ShowPoint(DiffMode) {
 
 function UpdateFengwei() //更新风位
 {
-    $q('.playerpos', (game.jushu + 3) % 4).text('东');
+    $q('.playerpos', (game.jushu + 3) % 4).text('東');
     $q('.playerpos', (game.jushu + 4) % 4).text('南');
     $q('.playerpos', (game.jushu + 5) % 4).text('西');
     $q('.playerpos', (game.jushu + 6) % 4).text('北');
@@ -214,7 +214,7 @@ function UpdateUserName() {
 function UpdateGameProcess() {
     var chn = ['一', '二', '三', '四'];
     $("#changkuang").text(game.changfeng + chn[game.jushu - 1] + '局');
-    $("#benchangshu").text(game.benchang + '本场');
+    $("#benchangshu").text(game.benchang + '本場');
 }
 
 //随机换座位
@@ -240,7 +240,7 @@ function rong_click(idx) {
         $("#player" + idx + "_rong").text("取消");
         $("#player" + idx + "_rong").addClass('t_btn_click');
         if (dianpao_flag[idx] == true) {
-            $("#player" + idx + "_dianpao").text("点炮");
+            $("#player" + idx + "_dianpao").text("榮");
             $("#player" + idx + "_dianpao").removeClass('t_btn_click');
             dianpao_flag[idx] = false;
         }
@@ -252,7 +252,7 @@ function dianpao_click(idx) {
     if (game_area_lock) return;
     dianpao_flag[idx] = !dianpao_flag[idx];
     if (dianpao_flag[idx] == false) {
-        $("#player" + idx + "_dianpao").text("点炮");
+        $("#player" + idx + "_dianpao").text("榮");
         $("#player" + idx + "_dianpao").removeClass('t_btn_click');
     } else {
         $("#player" + idx + "_dianpao").text("取消");
@@ -273,7 +273,7 @@ function dianpao_click(idx) {
     var has_dianpao = dianpao_flag[0] || dianpao_flag[1] || dianpao_flag[2] || dianpao_flag[3];
     for (var i = 0; i < 4; i++) {
         if (rong_flag[idx] == false) {
-            $("#player" + i + "_rong").text(has_dianpao ? "胡牌" : "自摸");
+            $("#player" + i + "_rong").text(has_dianpao ? "榮和" : "自摸");
         }
     }
 }
@@ -316,7 +316,7 @@ function changeView(idx) {
 }
 
 function Set_OKbtn_Text() {
-    var text = "确定";
+    var text = "確定";
     $('#fanfu_ok').attr("disabled", true);
     for (var i = 0; i < 4; i++) {
         if (rong_flag[i]) {
@@ -369,19 +369,19 @@ function Cal_BaseScore() { //基本点计算
 
 function ShowErrorStr(base_score) {
     if (base_score == -1)
-        $('#fanfu_ok')[0].value = '番数未设置';
+        $('#fanfu_ok')[0].value = '飜數未設置';
     if (base_score == -2)
-        $('#fanfu_ok')[0].value = '符数未设置';
+        $('#fanfu_ok')[0].value = '符數未設置';
     if (base_score == -3)
-        $('#fanfu_ok')[0].value = '一番25符是不可能的！！';
+        $('#fanfu_ok')[0].value = '一飜25符是不可能的！！';
     if (base_score == -4)
-        $('#fanfu_ok')[0].value = '自摸人数太多了！！';
+        $('#fanfu_ok')[0].value = '自摸人數太多了！！';
     if (base_score == -5)
-        $('#fanfu_ok')[0].value = '一炮三响是流局！！';
+        $('#fanfu_ok')[0].value = '一炮三響是流局！！';
     if (base_score == -6)
-        $('#fanfu_ok')[0].value = '四人点炮你逗我？！！';
+        $('#fanfu_ok')[0].value = '四人榮和你逗我？！！';
     if (base_score == -7)
-        $('#fanfu_ok')[0].value = '游戏已经开始了';
+        $('#fanfu_ok')[0].value = '遊戲已經開始了';
     setTimeout("Set_OKbtn_Text()", 1000);
 }
 
@@ -543,7 +543,7 @@ function Reset_Game_panel() {
     lichi_flag = [false, false, false, false];
     for (var i = 0; i < 4; i++) {
         $q('.rong_btn', i).text('自摸');
-        $q('.dianpao_btn', i).text('点炮');
+        $q('.dianpao_btn', i).text('榮和');
     }
     $('.rong_btn').removeClass('t_btn_click');
     $('.dianpao_btn').removeClass('t_btn_click');
@@ -563,7 +563,7 @@ function liuju_cal(score_list, oya_lose) {
 
 function end_game() {
     game_isStart = false;
-    game = new Game(1, '东', 0);
+    game = new Game(1, '東', 0);
     player = [new Player(player[0].playerName, InitScore), new Player(player[1].playerName, InitScore), new Player(player[2].playerName, InitScore), new Player(player[3].playerName, InitScore)];
     game_state = new Array();
     RecordCurGameState();
@@ -572,19 +572,19 @@ function end_game() {
 
 function change_game_mode() {
     if (game_isStart) {
-        alert("请先结束战斗！！");
+        alert("請先結束戰鬥！！");
         return;
     }
     if(game_mode == 1)
     {
-        $('#change_game_mode span').html('速东模式');
+        $('#change_game_mode span').html('速東模式');
         game_mode = 2;
         InitScore = 20000;
         end_game();
     }
     else
     {
-        $('#change_game_mode span').html('半庄模式');
+        $('#change_game_mode span').html('半莊模式');
         game_mode = 1;
         InitScore = 25000;
         end_game();
